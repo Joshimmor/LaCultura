@@ -6,11 +6,23 @@
   "scripts": {
     "lite": "lite-server",
     "start": "npm run lite",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:all": "parallelshell  'npm run lite'",
+    "imagemin": "imagemin assests/* -o dist/assests",
+    "usemin": "usemin index.html -d dist --htmlmin -o dist/index.html",
+    "clean": "rimraf dist",
+    "build": "npm run clean && npm run imagemin && npm run usemin"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "lite-server": "^2.3.0"
+    "copyfiles": "^2.2.0",
+    "imagemin-cli": "^5.1.0",
+    "lite-server": "^2.3.0",
+    "node-sass": "^4.14.1",
+    "onchange": "^7.0.0",
+    "parallelshell": "^3.0.1",
+    "rimraf": "^3.0.2",
+    "usemin-cli": "^0.6.0"
   }
 }

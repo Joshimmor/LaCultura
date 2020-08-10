@@ -57,6 +57,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+ 
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -89,7 +90,9 @@ abbr[data-original-title] {
   -webkit-text-decoration-skip-ink: none;
           text-decoration-skip-ink: none;
 }
-
+.mastHead-text{
+  font-family: "lobster";
+}
 address {
   margin-bottom: 1rem;
   font-style: normal;
@@ -148,15 +151,8 @@ sup {
   top: -0.5em;
 }
 
-a {
-  color: #f4623a;
-  text-decoration: none;
-  background-color: transparent;
-}
-a:hover {
-  color: #d6370c;
-  text-decoration: underline;
-}
+
+
 
 a:not([href]) {
   color: inherit;
@@ -4024,6 +4020,7 @@ input[type=button].btn-block {
   flex-basis: 100%;
   flex-grow: 1;
   align-items: center;
+  text-decoration: none;
 }
 
 .navbar-toggler {
@@ -10027,9 +10024,10 @@ hr.light {
   transition: background-color 0.2s ease;
 }
 #mainNav .navbar-brand {
-  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 700;
-  color: #212529;
+  text-decoration: none;
+  font-family: "lobster";
+  font-size: 1.5rem;
+ color: rgba(244, 98, 58, 0.9);
 }
 #mainNav .navbar-nav .nav-item .nav-link {
   color: #6c757d;
@@ -10037,6 +10035,7 @@ hr.light {
   font-weight: 700;
   font-size: 0.9rem;
   padding: 0.75rem 0;
+  text-decoration: none;
 }
 #mainNav .navbar-nav .nav-item .nav-link:hover, #mainNav .navbar-nav .nav-item .nav-link:active {
   color: #f4623a;
@@ -10051,6 +10050,7 @@ hr.light {
   }
   #mainNav .navbar-brand {
     color: rgba(255, 255, 255, 0.7);
+    font-size:2rem;
   }
   #mainNav .navbar-brand:hover {
     color: #fff;
@@ -10154,6 +10154,9 @@ header.masthead h1 {
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75);
 }
+#backdrop{
+  width:100vw
+}
 .culture{
   font-family: lobster;
   color: rgba(244, 98, 58, 0.9);
@@ -10172,12 +10175,103 @@ input::placeholder {
   text-decoration: none;
   border-radius: 50%;
 }
-
-
+#homeText{
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+}
+ .dl{
+   border: 2px solid rgb(255, 255, 255);
+   background-color: rgba(251, 0, 0, 0);
+   border-radius: 5px;
+   padding: 10px 15px;
+   display: inline-block;
+   color: white;
+  text-decoration: none;
+  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+ }
+ .dl:hover{
+  background-color: rgb(255, 255, 255);
+  color: black;
+ }
+.contact{
+  text-decoration: none;
+  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: rgba(244, 98, 58, 0.9);
+}
 .fab:hover {
   opacity: 0.7;
   background-color: rgb(0, 0, 0);
   color:rgb(255, 255, 255);
 }
+.jumbotron {
+  position: relative;
+  overflow: hidden;
+  background-color:black;
+  height: 100vh;
+  margin: 0;
+}
+.jumbotron video {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width:100%;
+  height:100%;
+  /*  object-fit is not supported on IE  */
+  object-fit: cover;
+  opacity:0.5;
+}
+.jumbotron .container {
+  z-index: 2;
+  position: relative;
+}
 
-
+#sideBar{
+  background-image: url('/assets/img/pic1.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  cursor: pointer;
+}
+#sideBar h2{
+  color: white;
+  position: absolute;
+  bottom: 10px;
+  
+}
+#row1{
+  background-image: url('/assets/img/pic2.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 24vh;
+  cursor: pointer;
+}
+#row2{
+  background-image: url('/assets/img/pic3.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 24vh;
+  cursor: pointer;
+}
+#row3{
+  background-image: url('/assets/img/pic4.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 24vh;
+  cursor: pointer;
+}
+#row4{
+  background-image: url('/assets/img/pic5.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 24vh;
+  cursor: pointer;
+}
+.saleBox{
+  padding: 5px;
+  background-color: white;
+  position: absolute;
+  bottom: 0px;
+  right:0px;
+  border-radius: 1px;
+}

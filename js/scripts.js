@@ -1,4 +1,50 @@
+function deferVideo() {
 
+  //defer html5 video loading
+$("video source").each(function() {
+  var sourceFile = $(this).attr("src");
+  $(this).attr("src", sourceFile);
+  var video = this.parentElement;
+  video.load();
+  
+});
+
+}
+window.onload = deferVideo;
+
+// scroll animations 
+  const controller = new ScrollMagic.Controller();  
+  const headLine = new TimelineMax();
+  headLine.from("#tags",{y:-300,opacity:0,duration:1,ease: "elastic.out(1, 1)" })
+  .from(".dl",{y:100,opacity:0,duration:1,ease: "elastic.out(1, 1)"},"-=.5")
+
+  const timeLine = new TimelineMax ();
+  
+  
+    timeLine.from("#sideBar",{y:300,duration:1,ease: "elastic.out(1, 1)" })
+    .from("#row1",{x:100,duration:1,ease: "elastic.out(1, 1)"},"-=1")
+    .from("#row2",{x:100,duration:1.4,ease: "elastic.out(1, 1)"},"-=1")
+    .from("#row3",{x:100,duration:1,ease: "elastic.out(1, 1)"},"-=1")
+    .from("#row4",{x:100,duration:1.4,ease: "elastic.out(1, 1)"},"-=1");
+
+    timeLine.pause();
+     /*
+       const tl1= TweenMax.from("#sideBar",{y:300,duration:2,ease: "elastic.out(1, 1)" } );
+       const tl2= TweenMax.from("#row1",{x:100,duration:2,ease: "elastic.out(1, 1)",});
+       const tl3= TweenMax.from("#row2",1,{x:100,duration:2,ease: "elastic.out(1, 1)"});
+       const tl4= TweenMax.from("#row3",1.5,{x:100,duration:2,ease: "elastic.out(1, 1)"});
+       const tl5= TweenMax.from("#row4",2,{x:100,duration:2,ease: "elastic.out(1, 1)"});
+     */         
+    
+  
+  const scene = new ScrollMagic.Scene({
+    triggerElement: '#about',
+    triggerHook: 0.75,
+  })
+  .on("enter",(e)=> timeLine.play())
+  .on("leave", (e)=> timeLine.reverse())
+  .addTo(controller);
+ 
     (function($) {
   "use strict"; // Start of use strict
 
@@ -16,6 +62,10 @@
     }
   });
 
+
+    $("#sideBar").click(function(){
+     window.location = "#call"
+    });
   // Closes responsive menu when a scroll trigger link is clicked
   $('.js-scroll-trigger').click(function() {
     $('.navbar-collapse').collapse('hide');
@@ -58,11 +108,31 @@
 
 })(jQuery); // End of use strict
  
-// modal functionality 
+// modal functionality
+
+
 
 $(function(){
-  $("#emailer").modal("show");
-  $("#emailer").submit(function (e) { 
+
+  // groupClasses
+  $("#row1").click(function(){
+    $("#groupClasses").modal("show")
+  });
+  
+   // onlineCoaching
+   $("#row3").click(function(){
+    $("#onlineCoaching").modal("show")
+  });
+   // consulation
+   $("#row4").click(function(){
+    $("#emailer").modal("show")
+  });
+   // personalTraining
+   $("#row2").click(function(){
+    $("#personalTraining").modal("show")
+  });
+   //emailer sub
+   $("#emailer").submit(function (e) { 
     e.preventDefault();
     $("#myBtn").prop('disabled', true);
     var formData = new FormData();
