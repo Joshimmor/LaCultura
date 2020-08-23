@@ -1,3 +1,10 @@
+//loader query
+
+$(window).on("load", function(){
+  $('#loadingScreen').fadeOut(5000);
+  
+})
+
 function deferVideo() {
 
   //defer html5 video loading
@@ -12,20 +19,22 @@ $("video source").each(function() {
 }
 window.onload = deferVideo;
 
+
+
 // scroll animations 
   const controller = new ScrollMagic.Controller();  
   const headLine = new TimelineMax();
-  headLine.from("#tags",{y:-300,opacity:0,duration:1,ease: "elastic.out(1, 1)" })
-  .from(".dl",{y:100,opacity:0,duration:1,ease: "elastic.out(1, 1)"},"-=.5")
+  headLine.from("#tags",5,{y:100,opacity:0,duration:1,ease: "elastic.out(1, 1)" })
+  .from(".dl",{y:100,opacity:0,duration:1,ease: "elastic.out(1, 1)"},"-=2")
 
   const timeLine = new TimelineMax ();
   
   
-    timeLine.from("#sideBar",{y:300,duration:1,ease: "elastic.out(1, 1)" })
-    .from("#row1",{x:100,duration:1,ease: "elastic.out(1, 1)"},"-=1")
-    .from("#row2",{x:100,duration:1.4,ease: "elastic.out(1, 1)"},"-=1")
-    .from("#row3",{x:100,duration:1,ease: "elastic.out(1, 1)"},"-=1")
-    .from("#row4",{x:100,duration:1.4,ease: "elastic.out(1, 1)"},"-=1");
+    timeLine.from("#sideBar",{y:300,duration:1.5,ease: "elastic.out(1, 1)" })
+    .from("#row1",{x:100,duration:1.5,ease: "elastic.out(1, 1)"} ,"-=1.5" )
+    .from("#row2",{x:100,duration:1.9,ease: "elastic.out(1, 1)"},"-=1.5")
+    .from("#row3",{x:100,duration:1.5,ease: "elastic.out(1, 1)"},"-=1.5")
+    .from("#row4",{x:100,duration:1.9,ease: "elastic.out(1, 1)"},"-=1.5");
 
     timeLine.pause();
      /*
@@ -36,7 +45,6 @@ window.onload = deferVideo;
        const tl5= TweenMax.from("#row4",2,{x:100,duration:2,ease: "elastic.out(1, 1)"});
      */         
     
-  
   const scene = new ScrollMagic.Scene({
     triggerElement: '#about',
     triggerHook: 0.75,
@@ -61,11 +69,13 @@ window.onload = deferVideo;
       }
     }
   });
-
+/*
 
     $("#sideBar").click(function(){
      window.location = "#call"
     });
+
+*/
   // Closes responsive menu when a scroll trigger link is clicked
   $('.js-scroll-trigger').click(function() {
     $('.navbar-collapse').collapse('hide');
@@ -113,27 +123,32 @@ window.onload = deferVideo;
 
 
 $(function(){
+  // Programs
+  $("#sideBar").click(function goToURL() {
+    location.href = '/Program.html';
+});
 
   // groupClasses
-  $("#row1").click(function(){
-    $("#groupClasses").modal("show")
+  $("#row1").click(function goToURL() {
+      location.href = '/groupClass.html';
   });
   
    // onlineCoaching
-   $("#row3").click(function(){
-    $("#onlineCoaching").modal("show")
+   $("#row3").click(function goToURL() {
+    location.href = '/onlineCoaching.html';
   });
    // consulation
    $("#row4").click(function(){
     $("#emailer").modal("show")
   });
    // personalTraining
-   $("#row2").click(function(){
-    $("#personalTraining").modal("show")
+   $("#row2").click(function goToURL() {
+    location.href = '/personalTraining.html';
   });
    //emailer sub
    $("#emailer").submit(function (e) { 
     e.preventDefault();
+    $('#emailer').modal('hide');
     $("#myBtn").prop('disabled', true);
     var formData = new FormData();
     formData.append("userName",("userName").value);
@@ -157,29 +172,20 @@ $(function(){
     e.preventDefault();
     $("#dlBtn").prop('disabled', true);
     var formData = new FormData();
-    formData.append("userName",("userName").value);
-    formData.append("userEmail",("userEmail").value);
+    formData.append("userName",document.getElementById("userName").value);
+    formData.append("userEmail",document.getElementById("userEmail").value);
     var ajax = new XMLHttpRequest();
-    ajax.open("POST","emailer.php");
+    ajax.open("POST","../emailer.php");
     ajax.onreadystatechange = function(){
       if (ajax.readyState === 4 && ajax.status === 200){
         if(ajax.responseText ==="success"){
-            let a = document.createElement('a');
-            a.href = item.url;
-            a.download = item.url.split('/').pop();
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+        console.log("hello idiot")
+        }
         }else{
-            let a = document.createElement('a');
-            a.href = "local.txt";
-            a.download = item.url.split('/').pop();
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+          console.log("hello idiot")
         }
       }
-    }
+  
     ajax.send(formData);
     $("#dlContent").css("display","none");
     

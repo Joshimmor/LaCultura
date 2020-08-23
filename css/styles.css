@@ -10232,12 +10232,16 @@ input::placeholder {
   background-size: cover;
   height: 100vh;
   cursor: pointer;
+  box-shadow:  18px 18px 21px #16141383,
+                 -18px -18px 15px #ff660e2b;
 }
+
+
 #sideBar h2{
   color: white;
   position: absolute;
   bottom: 10px;
-  
+
 }
 #row1{
   background-image: url('/assets/img/pic2.jpg');
@@ -10245,6 +10249,7 @@ input::placeholder {
   background-size: cover;
   height: 24vh;
   cursor: pointer;
+  
 }
 #row2{
   background-image: url('/assets/img/pic3.jpg');
@@ -10252,6 +10257,8 @@ input::placeholder {
   background-size: cover;
   height: 24vh;
   cursor: pointer;
+  box-shadow:  18px 18px 21px #16141383,
+  -18px -18px 15px #ff660e2b;
 }
 #row3{
   background-image: url('/assets/img/pic4.jpg');
@@ -10259,6 +10266,8 @@ input::placeholder {
   background-size: cover;
   height: 24vh;
   cursor: pointer;
+  box-shadow:  18px 18px 21px #16141383,
+                 -18px -18px 15px #ff660e2b;
 }
 #row4{
   background-image: url('/assets/img/pic5.jpg');
@@ -10266,12 +10275,33 @@ input::placeholder {
   background-size: cover;
   height: 24vh;
   cursor: pointer;
+  box-shadow:  18px 18px 21px #16141383,
+                 -18px -18px 15px #ff660e2b;
 }
 .saleBox{
-  padding: 5px;
-  background-color: white;
+  padding:5px;
   position: absolute;
   bottom: 0px;
   right:0px;
-  border-radius: 1px;
+  color: white;
+}
+
+#loadingScreen{
+  width: 100vw;
+  height: 200vh;
+  background-color:black;
+  position:fixed;
+  z-index: 10;
+}
+#program{
+  margin:10px
+}
+#onlineCoaching{
+  margin:10px
+}
+#groupClass{
+  margin:10px
+}
+#personalTraining{
+  margin:10px
 }

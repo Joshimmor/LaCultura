@@ -2,7 +2,7 @@
 if( isset ($_POST['userName']) && isset($_POST['userEmail']) ){
   $userName = $_POST['userName'];
   $userEmail = $_POST['userEmail'];
-  $to = "mathew@lacultura.com";
+  $to = "mathew@lacultura.training";
   $from = $userEmail
   $subject = 'Contact form info'
   $message = '<b> Name:</b>'.$userName.' <br> <b> Email:</b>'.userEmail.;
